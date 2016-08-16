@@ -1,0 +1,193 @@
+﻿@model bool
+@{
+    Layout = null;
+    var mailIsSent = Model;
+}
+@* Mail send form *@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="cs"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8 eq-ie7" lang="cs"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9 eq-ie8" lang="cs"><![endif]--><!--[if IE 9]><html class="no-js eq-ie9" lang="cs"><![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js" lang="cs">
+<!--<![endif]-->
+<head>
+    <title>@ViewBag.Title</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Scripts.Render("~/Content/js/modernizr-custom.js")
+    <script src="//ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+        WebFont.load(
+            { "custom": { "families": ["SkodaPro", "SkodaPro-Bold", "SkodaPro-ExtraBold"] } }
+        );
+
+    </script>
+    @Styles.Render("~/Content/css/main.css")
+    @Scripts.Render("~/Content/js/libs/jquery/dist/jquery.min.js")
+    @Scripts.Render("~/Content/js/libs/slick-carousel/slick/slick.min.js")
+    @Scripts.Render("~/Content/js/libs/velocity/velocity.min.js")
+    @Scripts.Render("~/Content/js/libs/jquery-placeholder/jquery.placeholder.min.js")
+   
+    <style>
+        .section-header {
+            width: 1200px;
+            left: 50%;
+            -ms-transform: translate(-50%, 0);
+            -webkit-transform: translate(-50%, 0);
+            transform: translate(-50%, 0);
+        }
+
+        @@media screen and (max-device-width: 1025px) and (min-device-width: 767px)
+        {
+            #mailform-page
+            {
+                position: relative;
+            }
+
+            .header-wrapper
+            {
+                width: 630px;
+                position: absolute;
+                top: 0;
+
+                left: 0;
+                height: 140px;
+                overflow: hidden;
+            }
+
+            .section-header
+            {
+                top: 0;
+                position: absolute;
+            }
+
+            .form-container
+            {
+                padding-top: 140px;
+            }
+
+        }
+    </style>
+
+
+</head>
+<body id="mailform-page" style="overflow: hidden">
+    <div class="header-wrapper">
+        <div class="section-header low-version">
+            <img src="~/Content/images/ozdoby/14.png" alt=""><img src="~/Content/images/ozdoby/19.png" alt=""><img src="~/Content/images/ozdoby/04.png" alt="">
+            <h1 class="main-title"><span><span>@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageSend1)</span></span></h1><img src="~/Content/images/ozdoby/12.png" alt=""><img src="~/Content/images/ozdoby/21.png" alt=""><img src="~/Content/images/ozdoby/25.png" alt="">
+        </div>
+    </div>
+    @if(!mailIsSent) {
+    <div class="form-container">
+        <form method="post" action="" enctype="multipart/form-data" class="mail-form">
+            <input type="hidden" name="image_path" value="">
+            <div class="g-row">
+                <div data-style="padding-right: 5px" class="g-col-1-2">
+                    <input type="text" name="name" placeholder="@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageSend2)" tabindex="1" class="mail-input">
+                </div>
+                <div data-style="padding-left: 5px" class="g-col-1-2">
+                    <input type="text" name="email" placeholder="@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageSend3)" tabindex="2" class="mail-input">
+                </div>
+            </div>
+            <div class="form-slick-target">
+                <div>
+                    <input type="text" name="recipient[]" placeholder="@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageSend4)" tabindex="3" class="mail-input">
+                </div>
+                <div>
+                    <input type="text" name="recipient[]" placeholder="@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageSend4)" tabindex="4" class="mail-input">
+                </div>
+            </div>
+        </form><div class="text-left">
+            <a href="#" class="add-mail-link"><i class="icon-plus"></i>@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageSend5)</a><span>@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageSend6)    </span><br>
+            <label class="add-file-link file-choose hide-mobile">
+                <span><i class="icon-upload"></i>@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageSend7) </span>
+                <input type="file" name="csv_file">
+            </label><span class="hide-mobile">@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageSend8)</span>
+        </div>
+        <div class="control-buttons"><a href="#" class="box-link cancel-link">@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageSend9)</a><a href="#" class="green-link submit-link">@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageSend10) </a></div>
+    </div>
+    <script>
+        var initAllStuff = function(){
+            var mailForm = $(".form-slick-target");
+            var target = $("#upload-contact-box");
+
+            $("input").placeholder();
+
+            mailForm.slick({
+                slidesToShow: 2,
+                slidesToScroll: 1,
+                vertical: true,
+                infinite: false
+            });
+
+            $(".add-mail-link").on("click", function () {
+                var newInput = $("<input />").addClass("mail-input").addClass("new-added").attr("name", "recipient[]").attr("placeholder", "@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageSend4)");
+                var newContainer = $("<div />").addClass("mail-input-container").append(newInput);
+                mailForm.slick("slickAdd", newContainer);
+                mailForm.slick("slickNext");
+                return false;
+            });
+
+            $(".submit-link").on("click", function () {
+
+                var form_status = true;
+                var element;
+
+                $.each(["name", "email", "recipient[]"], function (index, itemName) {
+
+                    element = $("input[name='" + itemName + "']").eq(0);        /// prvni prvek...
+                    if (element.val() == "") {
+                        element.removeClass("success").addClass("danger");
+                        form_status = false;
+                    }
+                    else
+                        element.removeClass("danger").addClass("success");
+                });
+
+                if (form_status)
+                    $(".mail-form").submit();
+
+                return false;
+            });
+
+        };
+
+    </script>
+
+
+   }else{ 
+
+    <div class="form-container text-center">
+        <h1>@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageSend12)</h1>
+        <div class="control-buttons"><a href="#" class="green-link close-link">@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageSend11)</a></div>
+    </div>
+    <script>
+        $(document).ready(function () {
+
+            $(".close-link").on("click", function () {
+                $(".mail-share", window.parent.document).trigger("click");
+                $("span.next-slide", window.parent.document).eq(0).trigger("click");
+            });
+
+        });
+
+    </script>
+    <script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', '@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.GACode)', 'auto');
+    ga('send', 'pageview');
+    ga('send', 'event', 'Card', 'mail', 'SKODAJIS XMAS');
+    </script>
+
+   }
+</body>
+</html>

@@ -1,0 +1,56 @@
+{
+    "path" : "images/wish-bg/",
+    
+    "images": [
+        {
+            "id" : 1,
+            "url" : "1-full.jpg",
+            "color" : "#000"
+        },
+        {
+            "id" : 2,
+            "url" : "2-full.jpg",
+            "color" : "#000"
+        },
+        {
+            "id" : 3,
+            "url" : "3-full.jpg",
+            "color" : "#000"
+        },
+        {
+            "id" : 4,
+            "url" : "4-full.jpg",
+            "color" : "#000"
+        },
+        {
+            "id" : 5,
+            "url" : "5-full.jpg",
+            "color" : "#fff"
+        },
+        {
+            "id" : 6,
+            "url" : "6-full.jpg",
+            "color" : "#000"
+        },
+        {
+            "id" : 7,
+            "url" : "7-full.jpg",
+            "color" : "#000"
+        },
+        {
+            "id" : 8,
+            "url" : "8-full.jpg",
+            "color" : "#000"
+        },
+        {
+            "id" : 9,
+            "url" : "9-full.jpg",
+            "color" : "#fff"
+        },
+        {
+            "id": 10,
+            "url" : "10-full.jpg",
+            "color" : "#fff"
+        }        
+    ]
+}

@@ -1,0 +1,46 @@
+﻿@{
+    Layout = null;
+     
+}
+@* T & C *@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="cs"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8 eq-ie7" lang="cs"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9 eq-ie8" lang="cs"><![endif]--><!--[if IE 9]><html class="no-js eq-ie9" lang="cs"><![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js" lang="cs">
+<!--<![endif]-->
+<head>
+    <title>@ViewBag.Title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Scripts.Render("~/Content/js/modernizr-custom.js")
+    <script src="//ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+        WebFont.load(
+            { "custom": { "families": ["SkodaPro", "SkodaPro-Bold", "SkodaPro-ExtraBold"] } }
+        );
+
+    </script>
+    @Styles.Render("~/Content/css/main.css")
+    @Scripts.Render("~/Content/js/libs/jquery/dist/jquery.min.js")
+    @Scripts.Render("~/Content/js/libs/slick-carousel/slick/slick.min.js")
+    @Scripts.Render("~/Content/js/libs/velocity/velocity.min.js")
+    @Scripts.Render("~/Content/js/libs/jquery-placeholder/jquery.placeholder.min.js")
+    
+</head>
+<body id="page-toc">
+    <a href="#" class="toc-close"></a>
+    <script>
+        $(document).ready(function () {
+            $(".toc-close").on("click", function () {
+                $(".toc-content-share", window.parent.document).trigger("click");
+                return false;
+            });
+        });
+    </script>
+    <div>
+        @Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.TermsAndConditions)
+    </div>
+</body>
+</html>

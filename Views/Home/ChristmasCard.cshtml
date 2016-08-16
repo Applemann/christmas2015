@@ -1,0 +1,85 @@
+﻿@model Dictionary<string, string>
+
+@{
+    Layout = null;
+    string lang = Url.RequestContext.RouteData.Values["culture"].ToString();
+    string id = "";
+    try
+    {
+        id = Model["id"];
+    }
+    catch (Exception)
+    {
+        
+    }
+    
+}
+@* FB page for sharing *@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="cs"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8 eq-ie7" lang="cs"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9 eq-ie8" lang="cs"><![endif]--><!--[if IE 9]><html class="no-js eq-ie9" lang="cs"><![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js" lang="cs">
+<!--<![endif]-->
+<head>
+    <title>@ViewBag.Title</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Scripts.Render("~/Content/js/modernizr-custom.js")
+    <script src="//ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+    WebFont.load(
+        {"custom":{"families":["SkodaPro","SkodaPro-Bold","SkodaPro-ExtraBold"]}}
+    );
+
+    </script>
+    @Styles.Render("~/Content/css/main.css")
+
+    @* Titulek stranky/nadpisek pro FB *@
+    <meta property="og:title" content="@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.Title)">
+    @* Jmeno stranky *@
+    <meta property="og:site_name" content="@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.SiteName)">
+    @* Adresa (uplne) stavajicic stranky (vc. kodu pro generovani obr!! ) *@
+    <meta property="og:url" content="@Request.Url.AbsoluteUri">
+    @* Popisek ktery bude u toho itemu na sharovani... *@
+    <meta property="og:description" content="@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.SiteDescription)">
+
+    <meta property="og:image" content="@Html.Raw(SkodaChristmas2015.Helper.AdiktAzure.GetBlob("generated", "postcard-"+id+".png").Uri.ToString())" />
+    @*Html.Raw(SkodaChristmas2015.Helper.AdiktAzure.GetBlob("generated", item.Value).Uri.ToString())*@
+
+    <meta property="og:image:width" content="600" />
+    <meta property="og:image:height" content="600" />
+    
+    
+    <meta property="fb:app_id" content="@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.FacebookAppId)">
+    <style>
+        .section-header img {
+            transform: none;
+        }
+
+        .main-title {
+            transform: none;
+        }
+    </style>
+</head>
+<body style="overflow: visible">
+
+    <div id="page-main" role="main" style="padding: 0">
+        <div class="sections">
+            <section id="result" class="slide">
+                <div class="section-header">
+                    <img src="~/Content/images/ozdoby/02.png" alt=""><img src="~/Content/images/ozdoby/08.png" alt="">
+                    <h1 class="main-title" style="opacity: 1"><span style="transform: rotate(-2deg)"><span>@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.FBPageMainTitle)</span></span></h1><img src="~/Content/images/ozdoby/11.png" alt=""><img src="~/Content/images/ozdoby/15.png" alt="">
+                </div>
+                <div class="wrap-box" style="text-align: center">
+                
+                <div class="inner-box"><img src="@Html.Raw(SkodaChristmas2015.Helper.AdiktAzure.GetBlob("generated", "postcard-"+id+".png").Uri.ToString())" alt="" style="display: inline-block"></div>
+                
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>

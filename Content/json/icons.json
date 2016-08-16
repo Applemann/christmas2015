@@ -1,0 +1,125 @@
+{
+    "path": "images/icons-new",
+    "icons" : [
+        {
+            "id" : 1,
+            "url" : "icon-001.png"
+        },
+        {
+            "id" : 2,
+            "url" : "icon-002.png"
+        },
+        {
+            "id" : 3,
+            "url" : "icon-003.png"
+        },
+        {
+            "id" : 4,
+            "url" : "icon-004.png"
+        },
+        {
+            "id" : 5,
+            "url" : "icon-005.png"
+        },
+        {
+            "id" : 6,
+            "url" : "icon-006.png"
+        },
+        {
+            "id" : 7,
+            "url" : "icon-007.png"
+        },
+        {
+            "id" : 8,
+            "url" : "icon-008.png"
+        },
+        {
+            "id" : 9,
+            "url" : "icon-009.png"
+        },
+        {
+            "id" : 10,
+            "url" : "icon-010.png"
+        },
+        {
+            "id" : 12,
+            "url" : "icon-012.png"
+        },
+        {
+            "id" : 13,
+            "url" : "icon-013.png"
+        },
+        {
+            "id" : 14,
+            "url" : "icon-014.png"
+        },
+        {
+            "id" : 15,
+            "url" : "icon-015.png"
+        },
+        {
+            "id" : 16,
+            "url" : "icon-016.png"
+        },
+        {
+            "id" : 17,
+            "url" : "icon-017.png"
+        },
+        {
+            "id" : 19,
+            "url" : "icon-019.png"
+        },
+        {
+            "id" : 20,
+            "url" : "icon-020.png"
+        },
+        {
+            "id" : 21,
+            "url" : "icon-021.png"
+        },
+        {
+            "id" : 22,
+            "url" : "icon-022.png"
+        },
+        {
+            "id" : 23,
+            "url" : "icon-023.png"
+        },
+        {
+            "id" : 26,
+            "url" : "icon-026.png"
+        },
+        {
+            "id" : 27,
+            "url" : "icon-027.png"
+        },
+        {
+            "id" : 28,
+            "url" : "icon-028.png"
+        },
+        {
+            "id" : 30,
+            "url" : "icon-030.png"
+        },
+        {
+            "id" : 31,
+            "url" : "icon-031.png"
+        },
+        {
+            "id" : 32,
+            "url" : "icon-032.png"
+        },
+        {
+            "id" : 33,
+            "url" : "icon-033.png"
+        },
+        {
+            "id" : 34,
+            "url" : "icon-034.png"
+        },
+        {
+            "id" : 35,
+            "url" : "icon-035.png"
+        }
+    ]
+}

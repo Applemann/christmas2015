@@ -1,0 +1,25 @@
+{
+    "wishes": [
+        {
+            "id" : 3,
+            "text" : "May you have a happy {0}, and may {1} and {2} follow you always!",
+            "positions": ["christmas", "peace", "love"]
+        },
+        {
+            "id" : 4,
+            "text" : "Lorem ipsum {0} sit amet {1} amon {2} eter.",
+            "positions" : ["dolor", "intel", "us"]
+        },
+        {
+           "id" : 5,
+           "text": "Curabitur malesuada {0} non {1} rhoncus sollicitudin.",
+           "positions" : ["elit", "velit"]
+        },
+        {
+            "id" : 6,
+            "text" : "Donec semper lectus {0}, rhoncus {1} quis, ullamcorper {2}.",
+            "positions" : ["pulvinar", "velit", "velit"]
+        }
+        
+    ]
+}

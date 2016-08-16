@@ -1,0 +1,29 @@
+{
+    "wishes": [
+        {
+            "id" : 1,
+            "text" : "I can't wait to do{0},<br> things with{1}- bake{2},<br> eat{3}and{4}our home!",
+            "positions": ["one", "two", "three","four", "five"]
+        },
+        {
+            "id" : 2,
+            "text" : "On this joyous{0},<br> and throughout<br> the coming{1}, may your<br> world be filled with{2}",
+            "positions" : ["one", "two", "three"]
+        },
+        {
+            "id" : 3,
+            "text" : "Sing and be {0},<br> it’s&nbsp;{1}!&nbsp;Merry&nbsp;{2}&nbsp;to&nbsp;you<br> and your family.",
+            "positions" : ["one", "two","three"]
+        },
+        {
+            "id" : 4,
+            "text" : "Wishing you and your {0}<br> a merry {1} and a happy<br> new year! Let’s bring {2}<br> to every face.",
+            "positions" : ["one", "two", "three"]
+        },
+        {
+            "id" : 5,
+            "text" : "There’s nothing more {0}<br> in this world than to wake<br> up on Christmas morning<br> and not be {1}",
+            "positions" : ["one", "two"]
+        }        
+    ]
+}

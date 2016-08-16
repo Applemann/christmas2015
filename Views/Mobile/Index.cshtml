@@ -1,0 +1,131 @@
+﻿@model Dictionary<string, string>
+@{
+    Layout = null;
+    
+}
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="cs"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8 eq-ie7" lang="cs"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9 eq-ie8" lang="cs"><![endif]--><!--[if IE 9]><html class="no-js eq-ie9" lang="cs"><![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js" lang="cs">
+<!--<![endif]-->
+<head>
+    <title>@ViewBag.Title</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="~/Content/favicon.ico" type="image/vnd.microsoft.icon" />
+    <script src="//ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    @Scripts.Render("~/Content/js/modernizr-custom.js")
+    @Scripts.Render("~/Content/js/libs/matchMedia/matchMedia.js")
+
+    <script>
+    WebFont.load(
+        {"custom":{"families":["SkodaPro","SkodaPro-Bold","SkodaPro-ExtraBold"]}}
+    );
+
+    </script>
+    @Styles.Render("~/Content/css/main.css")
+    @Scripts.Render("~/Content/js/libs/jquery/dist/jquery.min.js")
+    @Scripts.Render("~/Content/js/libs/velocity/velocity.min.js")
+
+
+</head>
+<body id="outro-page">
+
+    <header id="page-header" role="banner" class="g-row">
+        <div class="g-col-1-2 text-left"><a href="@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.Address)"><img src="~/Content/images/skoda-logo.jpg" alt="Skoda"></a></div>
+        <div class="g-col-1-2 text-right">
+            <div data-href="@Html.Raw(Request.Url.GetLeftPart(UriPartial.Authority) + Url.Content("~"))" data-layout="button_count" data-width="120px" data-action="like" data-show-faces="true" data-share="true" class="fb-like"></div>
+        </div>
+    </header>
+    <section id="thankyou" class="slide">
+        <div class="section-header">
+            <img src="~/Content/images/outro-header-left.png" alt="">
+            <h1 class="main-title"><span><span data-num="5">@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageMain17)</span></span></h1>
+            <img src="~/Content/images/outro-header-right.png" alt="">
+        </div>
+        <div class="wrap-box">
+            <div class="inner-box fix-height box-white text-center thank-box">
+                <div>
+                    <h3 class="thank-box-title">@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageMain18)</h3>
+                    <h3 class="thank-box-title">@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageMain19)</h3>
+                    <p>@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageMain20)<br></p><a href="@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.AppStore)" , onclick="ga('send', 'event', 'App', 'landingLinkStore', 'SKODAJIS XMAS');"><img src="~/Content/images/dwn-button-app_store.png" alt="App Store"></a>&nbsp;<a href="@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.GooglePlay)" onclick="ga('send', 'event', 'App', 'landingLinkPlay', 'SKODAJIS XMAS');"><img src="~/Content/images/dwn-button-google_play.png" alt="Google play"></a>
+                </div>
+            </div>
+            <div class="control-buttons"><a href="@Url.Action("Index", "Home")" class="green-link">@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.NewCard)</a></div>
+        </div>
+    </section>
+    <footer id="page-footer" role="contentinfo" style="height: 40px" class="g-row">
+        <div class="g-col-md-1-4 g-col-1-1">
+            <p class="copy-text">@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.SkodaAuto)</p>
+        </div>
+    </footer>
+    <script>
+    window.breakPoints = {
+        mobile: "(max-width: 600px), (max-height: 420px)",
+        notmobile: "(min-width: 601px) and (min-height: 421px)"
+    };
+
+    $(document).ready(function(){
+
+        $(window).on("resize", function(){
+
+            if(matchMedia(window.breakPoints.notmobile).matches)
+            {
+
+                    var sectionWrapBox           = $(".wrap-box");
+                    var sectionHeaderHeight      = $(".section-header").outerHeight();
+                    var footerHeight             = $("#page-footer").outerHeight();
+                    var actionButtonsHeight      = $(".control-buttons").outerHeight();
+                    var targetHeight             = sectionWrapBox.outerHeight() - footerHeight;
+                    var contentHeight = targetHeight - actionButtonsHeight - sectionHeaderHeight;
+
+                    contentHeight = $("body").outerHeight() - footerHeight - actionButtonsHeight - sectionHeaderHeight;
+
+                    $(".inner-box", sectionWrapBox).css("width", contentHeight + "px");
+
+            }else
+                $(".pagec-item .wrap-box .inner-box").css("width", "");
+        });
+
+        $(window).trigger("resize");
+
+        $(".section-header img").each(function (index, item) {
+            $(item).velocity({ translateY: ["0%", "-140%"] }, { duration: 750, easing: [200, 14] });
+        });
+
+        var target = $(".main-title");
+
+        $(".main-title > span").velocity({ rotateZ: Math.random() + 1.5 }, { duration: 0 });
+        target.css("opacity", 1).velocity({ translateY: ["0%", "-140%"] }, { duration: 900, easing: [200, 50], delay: 400});
+
+
+    });
+
+    </script>
+
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/cs_CZ/sdk.js#xfbml=1&version=v2.5&appId=636519826446334";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', '@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.GACode)', 'auto');
+    ga('send', 'pageview');
+    </script>
+</body>
+</html>

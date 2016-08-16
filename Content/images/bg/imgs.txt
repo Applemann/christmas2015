@@ -1,0 +1,11 @@
+dummy-750x750-AppleTree-plain.jpg
+dummy-750x750-Dugs-plain.jpg
+dummy-750x750-FrostedWindow-plain.jpg
+dummy-750x750-IceCrystal-plain.jpg
+dummy-750x750-LightSignal-plain.jpg
+dummy-750x750-ParkBench-plain.jpg
+dummy-750x750-SkiLift-plain.jpg
+dummy-750x750-SnowBank-plain.jpg
+dummy-750x750-Stars-plain.jpg
+dummy-750x750-Tunnel-plain.jpg
+imgs.txt

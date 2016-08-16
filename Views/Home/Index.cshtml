@@ -1,0 +1,315 @@
+﻿@model Dictionary<string, string>
+@{
+    Layout = null;
+    string lang = Url.RequestContext.RouteData.Values["culture"].ToString();
+    if (lang == "") { lang = "en"; }
+
+}
+<!DOCTYPE html>@* Hlavni stranka (SPA) *@
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="cs"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8 eq-ie7" lang="cs"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9 eq-ie8" lang="cs"><![endif]--><!--[if IE 9]><html class="no-js eq-ie9" lang="cs"><![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js" lang="cs">
+<!--<![endif]-->
+<head>
+    <title>@ViewBag.Title</title>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="shortcut icon" href="~/Content/favicon.ico" type="image/vnd.microsoft.icon" />
+
+    @Scripts.Render("~/Content/js/modernizr-custom.js")
+    @Scripts.Render("~/Content/js/libs/picturefill/dist/picturefill.min.js")
+    @Scripts.Render("~/Content/js/libs/matchMedia/matchMedia.js")
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+    WebFont.load(
+        {"custom":{"families":["SkodaPro","SkodaPro-Bold","SkodaPro-ExtraBold"]}}
+    );
+
+    </script>
+    @Styles.Render("~/Content/css/main.css")
+
+    <meta property="og:title" content="@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.Title)">
+    <meta property="og:site_name" content="@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.SiteDescription)">
+    <meta property="og:url" content="@Html.Raw(Request.Url.GetLeftPart(UriPartial.Authority) + "/" + lang)">
+    <meta property="og:description" content="@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageMainDescription)">
+    <meta property="og:image" content="@Html.Raw(Request.Url.GetLeftPart(UriPartial.Authority) + Url.Content("~"))Content/images/appicon1024.png">
+    <meta property="fb:app_id" content="@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.FacebookAppId)">
+    
+    <script>
+    var pageConfig = {
+        baseUrl: "/Content/",
+        lang: "@lang",
+        appid: "@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.FacebookAppId)"
+    };
+
+    </script>
+
+    <style>
+        section .section-header {
+            width: 1200px;
+            left: 50%;
+            -ms-transform: translate(-50%, 0);
+            -webkit-transform: translate(-50%, 0);
+            transform: translate(-50%, 0);
+        }
+        #result .inner-box::after
+        {
+            content: " ";
+            padding-top: 100%;
+        }
+    </style>
+
+
+
+</head>
+<body>
+    <header id="page-header" role="banner" class="g-row">
+        <div class="g-col-1-2 text-left"><a href=""><img src="~/Content/images/skoda-logo.jpg" alt="Skoda"></a></div>
+        <div class="g-col-1-2 text-right hide-mobile">
+            <div data-href="@Html.Raw(Request.Url.GetLeftPart(UriPartial.Authority) + "/" + lang)" data-layout="button_count" data-width="120px" data-action="like" data-show-faces="true" data-share="true" class="fb-like"></div>
+        </div>
+        <div class="g-col-1-2 text-right show-mobile">
+            <div class="lang-switch top-version">
+                <a href="#" class="toggle-lang"><img src="~/Content/images/burger-menu.svg" alt=""></a>
+                <div class="lang-list down-style">
+                    <ul>
+    @foreach (var culture in ViewBag.cultures)
+    {
+        <li><a href="@Url.Action("Index", "Home", new { culture = culture.Key })">@culture.Value</a></li>
+    }
+                    
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div id="page-main" role="main" class="hidden">
+        <div class="page-counter">
+            <ul class="page-counter-list">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+            </ul>
+        </div>
+        <div class="section">
+            <section id="intro" class="slide">
+                <div class="wrap-box">
+                    <div class="intro-box">
+                        <p class="wish-message">
+                            @{
+                                int length = ViewBag.mainWishList.Length;
+                            }
+
+                            @for (int i = 0; i < length; i++)
+                            {
+                               
+                               @Html.Raw(ViewBag.mainWishList[i])
+                                
+                                if (i == length - 1) { break; }
+                                string iconName = "icon-" + ViewBag.mainWishIcons[i] + ".png";
+                               <span class="ico-container"><img src="~/Content/images/icons-new/@iconName" alt=" "></span>
+                                
+                            }
+
+                            
+
+                        </p>
+                        <p class="text-perex">@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageMain5) </p><a href="#" data-content="@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.CreateCard)" class="green-link next-slide disabled loader-link">&nbsp;</a>
+                    </div>
+                </div>
+            </section>
+            <section id="card" class="slide">
+                <div class="section-header">
+                    <img src="~/Content/images/ozdoby/02.png"><img src="~/Content/images/ozdoby/18.png">
+                    <h1 class="main-title"><span><span data-num="1">@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageMain6)</span></span></h1><img src="~/Content/images/ozdoby/04.png"><img src="~/Content/images/ozdoby/19.png">
+                </div>
+                <div class="wrap-box">
+                    <div class="inner-box fix-height">
+                        <ul data-bind="foreach: {data: cardImages, afterAdd: afterAddCardImage}" class="card-list">
+                            <li class="g-col-1-2 g-col-md-1-3"><a href="#" data-bind="attr: {'data-image-id': $data.getId()}, click: $root.selectImage.bind($root,$data), css: {'active': $data.isEqual($root.selectedImage())}" class="card-thumb"><img data-bind="attr: {'src': $data.getPath()}"><span class="overlay"></span></a></li>
+                        </ul>
+                    </div>
+                    <div class="control-buttons">                       <a href="#" class="box-link prev-slide">@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageSend9)</a><a href="#" data-bind="css: {'disabled' : !$root.selectedImage()}" class="green-link next-slide">@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageMain7)</a></div>
+                </div>
+            </section>
+            <section id="wish-choose" class="slide">
+                <div class="section-header">
+                    <img src="~/Content/images/ozdoby/08.png" alt=""><img src="~/Content/images/ozdoby/10.png" alt="">
+                    <h1 class="main-title"><span><span data-num="2">@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageMain8)</span></span></h1><img src="~/Content/images/ozdoby/05.png" alt=""><img src="~/Content/images/ozdoby/20.png" alt="">
+                </div>
+                <div class="wrap-box">
+                    <div class="inner-box fix-height box-white content-box">
+                        <div class="wish-box">
+                            <!-- ko foreach: {data: cardWishes, afterRender: renderWishSlick }   -->
+                            <div>
+                                <div class="wish-msg-place">
+                                    <p data-bind="html: $data.getFullString(), click: $root.selectWish.bind($root, $data), attr: {'data-wish-id' : $data.getId()}" class="wish-message"></p>
+                                </div>
+                            </div>
+                            <!-- /ko -->
+                        </div>
+                    </div>
+                    <div class="control-buttons">                   <a href="#" class="box-link prev-slide">@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageSend9)</a><a href="#" data-bind="css: {'disabled' : !$root.selectedWish()}, click: selectSlickWish" class="green-link next-slide">@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageMain7)</a></div>
+                </div>
+            </section>
+            <section id="wish" data-bind="click: hideIconSelector" class="slide">
+                <div class="section-header">
+                    <img src="~/Content/images/ozdoby/03.png" alt=""><img src="~/Content/images/ozdoby/14.png" alt="">
+                    <h1 class="main-title"><span><span data-num="3">@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageMain9)</span></span></h1><img src="~/Content/images/ozdoby/12.png" alt=""><img src="~/Content/images/ozdoby/21.png" alt="">
+                </div>
+                <div class="wrap-box">
+                    <div class="inner-box fix-height box-white">
+                        <div class="instruction-box">
+                            <h5>@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageMain10)</h5>
+                            <p>@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageMain11)</p>
+                        </div>
+                        <div class="wish-box-config">
+                            <!-- ko if: selectedWish -->
+                            <p data-bind="html: selectedWish().getPreparedString()" class="wish-message"></p>
+                            <!-- /ko-->
+                        </div>
+                        <div data-bind="if: selectedIconPosition && showIconSelector, css: {'active' : selectedIconPosition && showIconSelector}" class="icon-list dont-touch">
+                            <!-- ko foreach: cardIconsToDisplay --><a href="#" data-bind="style: {'background-image': 'url(' + $data.getPath() + ')'}, attr: {'data-icon-pos': $root.selectedIconPosition, 'id' : 'icon-id-' + $data.getId()}, css: {'checked' : $root.isSelectedIcon($data)}, click: $root.assignIconToPosition.bind($root, $data)" class="ico-item"><span class="overlay">&nbsp;</span></a>
+                            <!-- /ko        --><a href="#" data-bind="click: nextIcons" class="icon-list-nav next"></a>
+                        </div>
+                    </div>
+                    <div class="control-buttons">           <a href="#" class="box-link prev-slide">@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageMain12)</a><a href="#" data-bind="css: {'disabled' : !$root.allIconsAssigned() }, click: function() { $root.selectedImageWithParams() }" class="green-link next-slide">@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageMain13)</a></div>
+                </div>
+            </section>
+            <section id="result" class="slide" data-bind="click: hideShareLinksEvent">
+                <div class="section-header">
+                    <img src="~/Content/images/ozdoby/22.png" alt=""><img src="~/Content/images/ozdoby/23.png" alt="">
+                    <h1 class="main-title"><span><span data-num="4">@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageMain14)</span></span></h1><img src="~/Content/images/ozdoby/24.png" alt=""><img src="~/Content/images/ozdoby/02.png" alt="">
+                </div>
+                <div class="wrap-box">
+                    <div class="inner-box" style="text-align: center">
+                        <!-- ko if: selectedImagePathThumb() != "" -->
+                        @* <img src="" alt="" data-bind="attr: {src: $root.selectedImagePathThumb}" style="display: inline-block" /> *@
+                        <div style="background-size: cover; background-repeat: no-repeat; background-position: 50% 50%" data-bind="style: {backgroundImage: 'url(' + $root.selectedImagePathThumb() + ')' }" class="inner-box box-white fix-height"></div>
+                        <!-- /ko -->
+                        <!-- ko if: $root.selectedImagePathThumb() == "" -->
+                        <div class="inner-box box-white fix-height" style="background: #fff url(/Content/images/preloader.gif) 50% 50% no-repeat">&nbsp;</div>
+                        <!-- /ko -->
+
+                    </div>
+                    <div class="control-buttons">
+                        <a href="#" class="box-link prev-slide">@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageMain12)</a>
+                        <span class="green-link share-link" data-bind="event: {click: function(){ showShareLinks()} }, clickBubble: false">
+                            <span>@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageMain15)</span>
+                            <ul class="share-links-list">
+                                <li><a href="#" data-bind="click: function() { openFacebookOverlay(); }" class="share-fb">Facebook</a></li>
+                                <li><a href="#" data-bind="click: function() { openFormOverlay(); }" class="share-mail">Mail</a></li>
+                                <li><a href="#" class="share-dwn">@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageMain16)</a></li>
+                            </ul>
+                        </span>
+                        <span class="next-slide">&nbsp;</span>
+                    </div>
+                </div>
+            </section>
+            <section id="thankyou" class="slide">
+                <div class="section-header">
+                    <img src="~/Content/images/ozdoby/16.png" alt=""><img src="~/Content/images/ozdoby/15.png" alt="">
+                    <h1 class="main-title"><span><span data-num="5"> @Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageMain17) </span></span></h1><img src="~/Content/images/ozdoby/04.png" alt=""><img src="~/Content/images/ozdoby/17.png" alt=""><img src="~/Content/images/ozdoby/09.png" alt="">
+                </div>
+                <div class="wrap-box">
+                    <div class="inner-box fix-height box-white text-center thank-box">
+                        <div>
+                            <h3 class="thank-box-title">@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageMain18)</h3>
+                            <h3 class="thank-box-title">@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageMain19)</h3>
+
+                            <p>@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageMain20)<br></p><a href="@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.AppStore)" onclick="ga('send', 'event', 'App', 'thankLinkStore', 'SKODAJIS XMAS');"><img src="~/Content/images/dwn-button-app_store.png" alt="App Store"></a>&nbsp;<a href="@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.GooglePlay)" onclick="ga('send', 'event', 'App', 'thankLinkPlay', 'SKODAJIS XMAS');"><img src="~/Content/images/dwn-button-google_play.png" alt="Google play"></a>
+
+                        </div>
+                    </div>
+                    <div class="control-buttons"><a href="#" class="box-link prev-slide">@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageMain12)</a><a href="#" data-bind="click: function(){ startFromScratch() }" class="green-link">@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageMain_New)</a></div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="page-overlay facebook-share">
+    </div>
+    <div class="page-overlay mail-share">
+        <div class="overlay-window">
+            <div class="mail-config-box">
+                <iframe src="" data-src="@lang/SendCSV/Index" style="width: 100%; height: 100%" id="mail-send-frame"></iframe>
+            </div>
+        </div>
+    </div>
+    <div class="page-overlay toc-content-share">
+        <iframe src="@lang/Home/Condition"></iframe>
+    </div>
+    <div id="icon-list-overlay">   </div>
+    <div id="share-links-overlay">
+        <div class="share-links-content">
+            <span>@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageMain23)</span>
+            <div class="buttons control-buttons"><a href="#" data-bind="click: function(){ hideShareLinks(); }" class="white-link">@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageMain12)</a><a href="#" data-bind="click: function(){ hideShareLinks(); }" class="next-slide white-link inverted">@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.Done)</a></div>
+        </div>
+    </div>
+    <section id="landscape-message">
+        <img src="~/Content/images/ozdoby/08.png" alt="">
+        <img src="~/Content/images/ozdoby/10.png" alt="">
+        <h1 class="main-title"><span><span>@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.RotateDevice)</span></span></h1>
+        <img src="~/Content/images/ozdoby/05.png" alt="">
+        <img src="~/Content/images/ozdoby/20.png" alt="" style="margin-left: 20px">
+    </section>
+    <div id="lang-close-overlay"></div>
+
+    <script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', '@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.GACode)', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    <footer id="page-footer" role="contentinfo" class="g-row">
+        <div class="g-col-md-1-3 g-col-1-1 hide-mobile">
+            <div class="lang-switch">
+                <a href="#" class="toggle-lang">@ViewBag.cultures[lang]</a>
+                <div class="lang-list">
+                    <ul>
+                            @foreach (var culture in ViewBag.cultures)
+                            {
+                                <li><a href="@Url.Action("Index", "Home", new { culture = culture.Key })">@culture.Value</a></li>
+                            }
+                    </ul>
+                </div>
+            </div>
+            <p class="copy-text"><a href="#" data-bind="click: function(){ openTOCWindow() }">@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.TC)</a>&nbsp;|&nbsp;@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.SkodaAuto)</p>
+        </div>
+        <div class="g-col-md-2-3 g-col-1-1">
+            <p class="text-right download-info">@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageMain21)</p>
+            <p class="text-right download-info">
+                @Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.PageMain22)
+                <a href="@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.AppStore)" onclick="ga('send', 'event', 'App', 'pathLinkStore', 'SKODAJIS XMAS');"><img src="~/Content/images/dwn-button-app_store.png" alt=""></a>
+                &nbsp;&nbsp;
+                <a href="@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.GooglePlay)" onclick="ga('send', 'event', 'App', 'pathLinkPlay', 'SKODAJIS XMAS');"><img src="~/Content/images/dwn-button-google_play.png" alt=""></a>
+
+            </p>
+            <a href="@Url.Action("Index", "Mobile", new { culture = lang })" class="download-info-link"><img src="~/Content/images/footer-mobile-huge2.png" alt="" class="download-info-image"></a>
+        </div>
+        <div class="g-col-1-1 show-mobile">
+            <p class="copy-text mobile-footer-sign">
+                <a href="#" data-bind="click: function(){ openTOCWindow() }">@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.TC) </a>
+                @Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.SkodaAuto)
+            </p>
+        </div>
+    </footer>
+    <script src="//connect.facebook.net/en_US/sdk.js"></script>
+    <script src="~/Content/js/libs/requirejs/require.js" data-main="/Content/js/main"></script>
+    <script>window.cookieconsent_options = { "message": "@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.CookieConsentMessage)", "dismiss": "@Html.Raw(SkodaChristmas2015.Resources.ChristmasDefault.CookieConsentDismiss)", "learnMore": "More info", "link": null, "theme": "light-floating" };</script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.9/cookieconsent.min.js"></script>
+</body>
+</html>

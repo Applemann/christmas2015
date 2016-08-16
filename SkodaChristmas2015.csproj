@@ -1,0 +1,990 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8F021293-4C00-4920-97C3-2615DABB1083}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SkodaChristmas2015</RootNamespace>
+    <AssemblyName>SkodaChristmas2015</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CsvHelper, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
+      <HintPath>..\packages\CsvHelper.2.13.5.0\lib\net40-client\CsvHelper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=6.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAzure.Storage.6.1.0\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.1.1\lib\net45\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Skoda.ResourceProvider, Version=1.0.13.22267, Culture=neutral, PublicKeyToken=f91403cda83fcc29, processorArchitecture=MSIL">
+      <HintPath>..\packages\ResourceProvider.1.0.15\lib\net45\Skoda.ResourceProvider.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Skoda.ResourceProvider.Common, Version=1.0.13.22267, Culture=neutral, PublicKeyToken=f91403cda83fcc29, processorArchitecture=MSIL">
+      <HintPath>..\packages\ResourceProvider.1.0.15\lib\net45\Skoda.ResourceProvider.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Skoda.SenderWSSecuredRest.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=523d0d497467b0c6, processorArchitecture=MSIL">
+      <HintPath>..\packages\SenderWSSecuredRest.Model.1.0.4\lib\net45\Skoda.SenderWSSecuredRest.Model.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SkodaAuto.Services.Rest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=58172a448c5c7ed7, processorArchitecture=MSIL">
+      <HintPath>..\packages\SkodaAuto.Services.Rest.1.1.3\lib\net45\SkodaAuto.Services.Rest.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SkodaResourceManager, Version=3.0.0.20, Culture=neutral, PublicKeyToken=155178e3eb7fe967, processorArchitecture=MSIL">
+      <HintPath>..\packages\SkodaAuto.ResourceManager_V2.3.0.0.20\lib\net45\SkodaResourceManager.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Spatial, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Spatial.5.6.4\lib\net40\System.Spatial.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.KeyVault.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.Azure.KeyVault.Core.1.0.0\lib\net40\Microsoft.Azure.KeyVault.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Edm, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.6.4\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.Data.OData.5.6.4\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.Data.Services.Client.5.6.4\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.WindowsAzure.ConfigurationManager.3.1.0\lib\net40\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.3\lib\net45\System.Web.Http.Owin.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
+    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
+    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
+    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\DownloadController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\GeneratorController.cs" />
+    <Compile Include="Controllers\MobileController.cs" />
+    <Compile Include="Controllers\SendCSVController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\AdiktAzure.cs" />
+    <Compile Include="Helper\CultureHelper.cs" />
+    <Compile Include="Models\AccountBindingModels.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Providers\ApplicationOAuthProvider.cs" />
+    <Compile Include="Resources\ChristmasDefault.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChristmasDefault.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\ChristmasDefault.Settings.cs">
+      <DependentUpon>ChristmasDefault.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Results\ChallengeResult.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\main.css" />
+    <Content Include="Content\favicon.ico" />
+    <Content Include="Content\fonts\fontello\fontello.svg" />
+    <Content Include="Content\fonts\index.html" />
+    <Content Include="Content\fonts\SkodaPro\SkodaPro-Bold.svg" />
+    <Content Include="Content\fonts\SkodaPro\SkodaPro-BoldItalic.svg" />
+    <Content Include="Content\fonts\SkodaPro\SkodaPro-ExtraBold.svg" />
+    <Content Include="Content\fonts\SkodaPro\SkodaPro-Italic.svg" />
+    <Content Include="Content\fonts\SkodaPro\SkodaPro-Light.svg" />
+    <Content Include="Content\fonts\SkodaPro\SkodaPro-Medium.svg" />
+    <Content Include="Content\fonts\SkodaPro\SkodaPro.svg" />
+    <Content Include="Content\fonts\slick\slick.svg" />
+    <Content Include="Content\images\1-dummy.jpg" />
+    <Content Include="Content\images\ajax-loader.gif" />
+    <Content Include="Content\images\appicon1024.png" />
+    <Content Include="Content\images\arrow-bottom-mail.jpg" />
+    <Content Include="Content\images\arrow-right-iconlist.png" />
+    <Content Include="Content\images\arrow-top-mail.jpg" />
+    <Content Include="Content\images\bg-check-iconlist.png" />
+    <Content Include="Content\images\bg-checked%402x.png" />
+    <Content Include="Content\images\bg-checked-white.png" />
+    <Content Include="Content\images\bg-checked.png" />
+    <Content Include="Content\images\bg-mobile-thumb-mini.png" />
+    <Content Include="Content\images\bg-mobile-thumb.png" />
+    <Content Include="Content\images\bg-mobile-thumb2.png" />
+    <Content Include="Content\images\bg\dummy-750x750-AppleTree-plain.jpg" />
+    <Content Include="Content\images\bg\dummy-750x750-Dugs-plain.jpg" />
+    <Content Include="Content\images\bg\dummy-750x750-FrostedWindow-plain.jpg" />
+    <Content Include="Content\images\bg\dummy-750x750-IceCrystal-plain.jpg" />
+    <Content Include="Content\images\bg\dummy-750x750-LightSignal-plain.jpg" />
+    <Content Include="Content\images\bg\dummy-750x750-ParkBench-plain.jpg" />
+    <Content Include="Content\images\bg\dummy-750x750-SkiLift-plain.jpg" />
+    <Content Include="Content\images\bg\dummy-750x750-SnowBank-plain.jpg" />
+    <Content Include="Content\images\bg\dummy-750x750-Stars-plain.jpg" />
+    <Content Include="Content\images\bg\dummy-750x750-Tunnel-plain.jpg" />
+    <Content Include="Content\images\bg\imgs.txt" />
+    <Content Include="Content\images\body-bg.jpg" />
+    <Content Include="Content\images\burger-menu.svg" />
+    <Content Include="Content\images\change-icon-empty.png" />
+    <Content Include="Content\images\change-icon-off.png" />
+    <Content Include="Content\images\change-icon-on.png" />
+    <Content Include="Content\images\close.svg" />
+    <Content Include="Content\images\close_black.png" />
+    <Content Include="Content\images\close_green.png" />
+    <Content Include="Content\images\dwn-button-app_store.png" />
+    <Content Include="Content\images\dwn-button-google_play.png" />
+    <Content Include="Content\images\footer-mobile-huge-trim.png" />
+    <Content Include="Content\images\footer-mobile-huge.png" />
+    <Content Include="Content\images\footer-mobile-huge2.png" />
+    <Content Include="Content\images\footer-mobile.png" />
+    <Content Include="Content\images\icons-new\icon-001.png" />
+    <Content Include="Content\images\icons-new\icon-002.png" />
+    <Content Include="Content\images\icons-new\icon-003.png" />
+    <Content Include="Content\images\icons-new\icon-004.png" />
+    <Content Include="Content\images\icons-new\icon-005.png" />
+    <Content Include="Content\images\icons-new\icon-006.png" />
+    <Content Include="Content\images\icons-new\icon-007.png" />
+    <Content Include="Content\images\icons-new\icon-008.png" />
+    <Content Include="Content\images\icons-new\icon-009.png" />
+    <Content Include="Content\images\icons-new\icon-010.png" />
+    <Content Include="Content\images\icons-new\icon-012.png" />
+    <Content Include="Content\images\icons-new\icon-013.png" />
+    <Content Include="Content\images\icons-new\icon-014.png" />
+    <Content Include="Content\images\icons-new\icon-015.png" />
+    <Content Include="Content\images\icons-new\icon-016.png" />
+    <Content Include="Content\images\icons-new\icon-017.png" />
+    <Content Include="Content\images\icons-new\icon-019.png" />
+    <Content Include="Content\images\icons-new\icon-020.png" />
+    <Content Include="Content\images\icons-new\icon-021.png" />
+    <Content Include="Content\images\icons-new\icon-022.png" />
+    <Content Include="Content\images\icons-new\icon-023.png" />
+    <Content Include="Content\images\icons-new\icon-026.png" />
+    <Content Include="Content\images\icons-new\icon-027.png" />
+    <Content Include="Content\images\icons-new\icon-028.png" />
+    <Content Include="Content\images\icons-new\icon-030.png" />
+    <Content Include="Content\images\icons-new\icon-031.png" />
+    <Content Include="Content\images\icons-new\icon-032.png" />
+    <Content Include="Content\images\icons-new\icon-033.png" />
+    <Content Include="Content\images\icons-new\icon-034.png" />
+    <Content Include="Content\images\icons-new\icon-035.png" />
+    <Content Include="Content\images\icons-new\icon-037.png" />
+    <Content Include="Content\images\icons-new\icon-038.png" />
+    <Content Include="Content\images\icons-new\icon-039.png" />
+    <Content Include="Content\images\icons-new\icon-040.png" />
+    <Content Include="Content\images\icons-new\icon-041.png" />
+    <Content Include="Content\images\icons-new\icon-042.png" />
+    <Content Include="Content\images\icons-new\icon-043.png" />
+    <Content Include="Content\images\icons-new\icon-044.png" />
+    <Content Include="Content\images\icons-new\icon-045.png" />
+    <Content Include="Content\images\icons-new\icon-046.png" />
+    <Content Include="Content\images\icons-new\icon-047.png" />
+    <Content Include="Content\images\icons-new\icon-048.png" />
+    <Content Include="Content\images\icons-new\icon-049.png" />
+    <Content Include="Content\images\icons-new\icon-050.png" />
+    <Content Include="Content\images\icons-new\icon-051.png" />
+    <Content Include="Content\images\icons-new\icon-052.png" />
+    <Content Include="Content\images\icons-new\icon-054.png" />
+    <Content Include="Content\images\icons-new\icon-055.png" />
+    <Content Include="Content\images\icons-new\icon-056.png" />
+    <Content Include="Content\images\icons-new\icon-057.png" />
+    <Content Include="Content\images\icons-new\icon-058.png" />
+    <Content Include="Content\images\icons-new\icon-059.png" />
+    <Content Include="Content\images\icons-new\icon-060.png" />
+    <Content Include="Content\images\icons-new\icon-061.png" />
+    <Content Include="Content\images\icons-new\icon-062.png" />
+    <Content Include="Content\images\icons-new\icon-063.png" />
+    <Content Include="Content\images\icons-new\icon-064.png" />
+    <Content Include="Content\images\icons-new\icon-066.png" />
+    <Content Include="Content\images\icons-new\icon-067.png" />
+    <Content Include="Content\images\icons-new\icon-068.png" />
+    <Content Include="Content\images\icons-new\icon-069.png" />
+    <Content Include="Content\images\icons-new\icon-070.png" />
+    <Content Include="Content\images\icons-new\icon-071.png" />
+    <Content Include="Content\images\icons-new\icon-072.png" />
+    <Content Include="Content\images\icons-new\icon-073.png" />
+    <Content Include="Content\images\icons-new\icon-074.png" />
+    <Content Include="Content\images\icons-new\icon-075.png" />
+    <Content Include="Content\images\icons-new\icon-076.png" />
+    <Content Include="Content\images\icons-new\icon-077.png" />
+    <Content Include="Content\images\icons-new\icon-078.png" />
+    <Content Include="Content\images\icons-new\icon-079.png" />
+    <Content Include="Content\images\icons-new\icon-080.png" />
+    <Content Include="Content\images\icons-new\icon-081.png" />
+    <Content Include="Content\images\icons-new\icon-082.png" />
+    <Content Include="Content\images\icons-new\icon-083.png" />
+    <Content Include="Content\images\icons-new\icon-084.png" />
+    <Content Include="Content\images\icons-new\icon-085.png" />
+    <Content Include="Content\images\icons-new\icon-086.png" />
+    <Content Include="Content\images\icons-new\icon-087.png" />
+    <Content Include="Content\images\icons-new\icon-088.png" />
+    <Content Include="Content\images\icons-new\icon-089.png" />
+    <Content Include="Content\images\icons-new\icon-090.png" />
+    <Content Include="Content\images\icons-new\icon-091.png" />
+    <Content Include="Content\images\icons-new\icon-092.png" />
+    <Content Include="Content\images\icons-new\icon-093.png" />
+    <Content Include="Content\images\icons-new\icon-094.png" />
+    <Content Include="Content\images\icons-new\icon-095.png" />
+    <Content Include="Content\images\icons-new\icon-096.png" />
+    <Content Include="Content\images\icons-new\icon-097.png" />
+    <Content Include="Content\images\icons-new\icon-098.png" />
+    <Content Include="Content\images\icons-new\icon-099.png" />
+    <Content Include="Content\images\icons-new\icon-100.png" />
+    <Content Include="Content\images\icons-new\icon-101.png" />
+    <Content Include="Content\images\icons\ico-bear.png" />
+    <Content Include="Content\images\icons\ico-bells.png" />
+    <Content Include="Content\images\icons\ico-glasses.png" />
+    <Content Include="Content\images\icons\ico-hat.png" />
+    <Content Include="Content\images\icons\ico-pallantir.png" />
+    <Content Include="Content\images\icons\ico-ring.png" />
+    <Content Include="Content\images\icons\ico-santa.png" />
+    <Content Include="Content\images\icons\ico-tree.png" />
+    <Content Include="Content\images\index.html" />
+    <Content Include="Content\images\mail-footer-mobile.png" />
+    <Content Include="Content\images\mail-footer-mobile_bottom.png" />
+    <Content Include="Content\images\mail-footer-mobile_top.png" />
+    <Content Include="Content\images\mail-logo.jpg" />
+    <Content Include="Content\images\mobile-icon-fb.png" />
+    <Content Include="Content\images\mobile-icon-mail.png" />
+    <Content Include="Content\images\mobile-icon-save.png" />
+    <Content Include="Content\images\outro-header-left.png" />
+    <Content Include="Content\images\outro-header-right.png" />
+    <Content Include="Content\images\ozdoby\01.png" />
+    <Content Include="Content\images\ozdoby\02.png" />
+    <Content Include="Content\images\ozdoby\03.png" />
+    <Content Include="Content\images\ozdoby\04.png" />
+    <Content Include="Content\images\ozdoby\05.png" />
+    <Content Include="Content\images\ozdoby\06.png" />
+    <Content Include="Content\images\ozdoby\07.png" />
+    <Content Include="Content\images\ozdoby\08.png" />
+    <Content Include="Content\images\ozdoby\09.png" />
+    <Content Include="Content\images\ozdoby\10.png" />
+    <Content Include="Content\images\ozdoby\11.png" />
+    <Content Include="Content\images\ozdoby\12.png" />
+    <Content Include="Content\images\ozdoby\13.png" />
+    <Content Include="Content\images\ozdoby\14.png" />
+    <Content Include="Content\images\ozdoby\15.png" />
+    <Content Include="Content\images\ozdoby\16.png" />
+    <Content Include="Content\images\ozdoby\17.png" />
+    <Content Include="Content\images\ozdoby\18.png" />
+    <Content Include="Content\images\ozdoby\19.png" />
+    <Content Include="Content\images\ozdoby\20.png" />
+    <Content Include="Content\images\ozdoby\21.png" />
+    <Content Include="Content\images\ozdoby\22.png" />
+    <Content Include="Content\images\ozdoby\23.png" />
+    <Content Include="Content\images\ozdoby\24.png" />
+    <Content Include="Content\images\ozdoby\25.png" />
+    <Content Include="Content\images\plus-recipient-off.png" />
+    <Content Include="Content\images\plus-recipient-on.png" />
+    <Content Include="Content\images\preloader.gif" />
+    <Content Include="Content\images\share-icon-fb.png" />
+    <Content Include="Content\images\share-icon-mail.png" />
+    <Content Include="Content\images\share-icon-save.png" />
+    <Content Include="Content\images\simply-clever.jpg" />
+    <Content Include="Content\images\simply-clever.png" />
+    <Content Include="Content\images\skoda-logo.jpg" />
+    <Content Include="Content\images\title-ribon-bg.png" />
+    <Content Include="Content\images\title-ribon-left.png" />
+    <Content Include="Content\images\title-ribon-right.png" />
+    <Content Include="Content\images\wish-arrow-left-on.png" />
+    <Content Include="Content\images\wish-arrow-left.png" />
+    <Content Include="Content\images\wish-arrow-right-on.png" />
+    <Content Include="Content\images\wish-arrow-right.png" />
+    <Content Include="Content\images\wish-bg\1-full.jpg" />
+    <Content Include="Content\images\wish-bg\10-full.jpg" />
+    <Content Include="Content\images\wish-bg\2-full.jpg" />
+    <Content Include="Content\images\wish-bg\3-full.jpg" />
+    <Content Include="Content\images\wish-bg\4-full.jpg" />
+    <Content Include="Content\images\wish-bg\5-full.jpg" />
+    <Content Include="Content\images\wish-bg\6-full.jpg" />
+    <Content Include="Content\images\wish-bg\7-full.jpg" />
+    <Content Include="Content\images\wish-bg\8-full.jpg" />
+    <Content Include="Content\images\wish-bg\9-full.jpg" />
+    <Content Include="Content\js\flowtype-own.js" />
+    <Content Include="Content\js\libs\es6-promise\promise.js" />
+    <Content Include="Content\js\libs\es6-promise\promise.min.js" />
+    <Content Include="Content\js\libs\eventEmitter\EventEmitter.js" />
+    <Content Include="Content\js\libs\eventEmitter\EventEmitter.min.js" />
+    <Content Include="Content\js\libs\fastclick\lib\fastclick.js" />
+    <Content Include="Content\js\libs\Flowtype.js\flowtype.js" />
+    <Content Include="Content\js\libs\Flowtype.js\LICENSE.txt" />
+    <Content Include="Content\js\libs\fullpage.js\jquery.fullPage.css" />
+    <Content Include="Content\js\libs\fullpage.js\jquery.fullPage.js" />
+    <Content Include="Content\js\libs\fullpage.js\jquery.fullPage.min.js" />
+    <Content Include="Content\js\libs\fullpage.js\pure javascript %28Alpha%29\demo.html" />
+    <Content Include="Content\js\libs\fullpage.js\pure javascript %28Alpha%29\javascript.fullPage.css" />
+    <Content Include="Content\js\libs\fullpage.js\pure javascript %28Alpha%29\javascript.fullPage.js" />
+    <Content Include="Content\js\libs\fullpage.js\pure javascript %28Alpha%29\javascript.fullPage.min.js" />
+    <Content Include="Content\js\libs\fullpage.js\vendors\jquery.easings.min.js" />
+    <Content Include="Content\js\libs\fullpage.js\vendors\jquery.slimscroll.js" />
+    <Content Include="Content\js\libs\fullpage.js\vendors\jquery.slimscroll.min.js" />
+    <Content Include="Content\js\libs\html5shiv\dist\html5shiv-printshiv.js" />
+    <Content Include="Content\js\libs\html5shiv\dist\html5shiv-printshiv.min.js" />
+    <Content Include="Content\js\libs\html5shiv\dist\html5shiv.js" />
+    <Content Include="Content\js\libs\html5shiv\dist\html5shiv.min.js" />
+    <Content Include="Content\js\libs\html5shiv\Gruntfile.js" />
+    <Content Include="Content\js\libs\jquery-placeholder\jquery.placeholder.js" />
+    <Content Include="Content\js\libs\jquery-placeholder\jquery.placeholder.min.js" />
+    <Content Include="Content\js\libs\jquery\dist\jquery.js" />
+    <Content Include="Content\js\libs\jquery\dist\jquery.min.js" />
+    <Content Include="Content\js\libs\jquery\MIT-LICENSE.txt" />
+    <Content Include="Content\js\libs\jquery\src\ajax.js" />
+    <Content Include="Content\js\libs\jquery\src\ajax\jsonp.js" />
+    <Content Include="Content\js\libs\jquery\src\ajax\load.js" />
+    <Content Include="Content\js\libs\jquery\src\ajax\parseJSON.js" />
+    <Content Include="Content\js\libs\jquery\src\ajax\parseXML.js" />
+    <Content Include="Content\js\libs\jquery\src\ajax\script.js" />
+    <Content Include="Content\js\libs\jquery\src\ajax\var\nonce.js" />
+    <Content Include="Content\js\libs\jquery\src\ajax\var\rquery.js" />
+    <Content Include="Content\js\libs\jquery\src\ajax\xhr.js" />
+    <Content Include="Content\js\libs\jquery\src\attributes.js" />
+    <Content Include="Content\js\libs\jquery\src\attributes\attr.js" />
+    <Content Include="Content\js\libs\jquery\src\attributes\classes.js" />
+    <Content Include="Content\js\libs\jquery\src\attributes\prop.js" />
+    <Content Include="Content\js\libs\jquery\src\attributes\support.js" />
+    <Content Include="Content\js\libs\jquery\src\attributes\val.js" />
+    <Content Include="Content\js\libs\jquery\src\callbacks.js" />
+    <Content Include="Content\js\libs\jquery\src\core.js" />
+    <Content Include="Content\js\libs\jquery\src\core\access.js" />
+    <Content Include="Content\js\libs\jquery\src\core\init.js" />
+    <Content Include="Content\js\libs\jquery\src\core\parseHTML.js" />
+    <Content Include="Content\js\libs\jquery\src\core\ready.js" />
+    <Content Include="Content\js\libs\jquery\src\core\var\rsingleTag.js" />
+    <Content Include="Content\js\libs\jquery\src\css.js" />
+    <Content Include="Content\js\libs\jquery\src\css\addGetHookIf.js" />
+    <Content Include="Content\js\libs\jquery\src\css\curCSS.js" />
+    <Content Include="Content\js\libs\jquery\src\css\defaultDisplay.js" />
+    <Content Include="Content\js\libs\jquery\src\css\hiddenVisibleSelectors.js" />
+    <Content Include="Content\js\libs\jquery\src\css\support.js" />
+    <Content Include="Content\js\libs\jquery\src\css\swap.js" />
+    <Content Include="Content\js\libs\jquery\src\css\var\cssExpand.js" />
+    <Content Include="Content\js\libs\jquery\src\css\var\isHidden.js" />
+    <Content Include="Content\js\libs\jquery\src\css\var\rmargin.js" />
+    <Content Include="Content\js\libs\jquery\src\css\var\rnumnonpx.js" />
+    <Content Include="Content\js\libs\jquery\src\data.js" />
+    <Content Include="Content\js\libs\jquery\src\data\accepts.js" />
+    <Content Include="Content\js\libs\jquery\src\data\support.js" />
+    <Content Include="Content\js\libs\jquery\src\deferred.js" />
+    <Content Include="Content\js\libs\jquery\src\deprecated.js" />
+    <Content Include="Content\js\libs\jquery\src\dimensions.js" />
+    <Content Include="Content\js\libs\jquery\src\effects.js" />
+    <Content Include="Content\js\libs\jquery\src\effects\animatedSelector.js" />
+    <Content Include="Content\js\libs\jquery\src\effects\support.js" />
+    <Content Include="Content\js\libs\jquery\src\effects\Tween.js" />
+    <Content Include="Content\js\libs\jquery\src\event.js" />
+    <Content Include="Content\js\libs\jquery\src\event\ajax.js" />
+    <Content Include="Content\js\libs\jquery\src\event\alias.js" />
+    <Content Include="Content\js\libs\jquery\src\event\support.js" />
+    <Content Include="Content\js\libs\jquery\src\exports\amd.js" />
+    <Content Include="Content\js\libs\jquery\src\exports\global.js" />
+    <Content Include="Content\js\libs\jquery\src\intro.js" />
+    <Content Include="Content\js\libs\jquery\src\jquery.js" />
+    <Content Include="Content\js\libs\jquery\src\manipulation.js" />
+    <Content Include="Content\js\libs\jquery\src\manipulation\support.js" />
+    <Content Include="Content\js\libs\jquery\src\manipulation\var\rcheckableType.js" />
+    <Content Include="Content\js\libs\jquery\src\manipulation\_evalUrl.js" />
+    <Content Include="Content\js\libs\jquery\src\offset.js" />
+    <Content Include="Content\js\libs\jquery\src\outro.js" />
+    <Content Include="Content\js\libs\jquery\src\queue.js" />
+    <Content Include="Content\js\libs\jquery\src\queue\delay.js" />
+    <Content Include="Content\js\libs\jquery\src\selector-sizzle.js" />
+    <Content Include="Content\js\libs\jquery\src\selector.js" />
+    <Content Include="Content\js\libs\jquery\src\serialize.js" />
+    <Content Include="Content\js\libs\jquery\src\sizzle\dist\sizzle.js" />
+    <Content Include="Content\js\libs\jquery\src\sizzle\dist\sizzle.min.js" />
+    <Content Include="Content\js\libs\jquery\src\support.js" />
+    <Content Include="Content\js\libs\jquery\src\traversing.js" />
+    <Content Include="Content\js\libs\jquery\src\traversing\findFilter.js" />
+    <Content Include="Content\js\libs\jquery\src\traversing\var\rneedsContext.js" />
+    <Content Include="Content\js\libs\jquery\src\var\class2type.js" />
+    <Content Include="Content\js\libs\jquery\src\var\concat.js" />
+    <Content Include="Content\js\libs\jquery\src\var\deletedIds.js" />
+    <Content Include="Content\js\libs\jquery\src\var\hasOwn.js" />
+    <Content Include="Content\js\libs\jquery\src\var\indexOf.js" />
+    <Content Include="Content\js\libs\jquery\src\var\pnum.js" />
+    <Content Include="Content\js\libs\jquery\src\var\push.js" />
+    <Content Include="Content\js\libs\jquery\src\var\rnotwhite.js" />
+    <Content Include="Content\js\libs\jquery\src\var\slice.js" />
+    <Content Include="Content\js\libs\jquery\src\var\strundefined.js" />
+    <Content Include="Content\js\libs\jquery\src\var\support.js" />
+    <Content Include="Content\js\libs\jquery\src\var\toString.js" />
+    <Content Include="Content\js\libs\jquery\src\wrap.js" />
+    <Content Include="Content\js\libs\Knockout-Extensions\knockout.dirtiable.js" />
+    <Content Include="Content\js\libs\Knockout-Extensions\knockout.pauseable.js" />
+    <Content Include="Content\js\libs\Knockout-Extensions\knockout.protected.js" />
+    <Content Include="Content\js\libs\Knockout-Extensions\knockout.snapshot.js" />
+    <Content Include="Content\js\libs\Knockout-Extensions\knockout.undoable.js" />
+    <Content Include="Content\js\libs\knockout\dist\knockout.debug.js" />
+    <Content Include="Content\js\libs\knockout\dist\knockout.js" />
+    <Content Include="Content\js\libs\knockout\Gruntfile.js" />
+    <Content Include="Content\js\libs\knockout\src\binding\bindingAttributeSyntax.js" />
+    <Content Include="Content\js\libs\knockout\src\binding\bindingProvider.js" />
+    <Content Include="Content\js\libs\knockout\src\binding\defaultBindings\attr.js" />
+    <Content Include="Content\js\libs\knockout\src\binding\defaultBindings\checked.js" />
+    <Content Include="Content\js\libs\knockout\src\binding\defaultBindings\click.js" />
+    <Content Include="Content\js\libs\knockout\src\binding\defaultBindings\css.js" />
+    <Content Include="Content\js\libs\knockout\src\binding\defaultBindings\enableDisable.js" />
+    <Content Include="Content\js\libs\knockout\src\binding\defaultBindings\event.js" />
+    <Content Include="Content\js\libs\knockout\src\binding\defaultBindings\foreach.js" />
+    <Content Include="Content\js\libs\knockout\src\binding\defaultBindings\hasfocus.js" />
+    <Content Include="Content\js\libs\knockout\src\binding\defaultBindings\html.js" />
+    <Content Include="Content\js\libs\knockout\src\binding\defaultBindings\ifIfnotWith.js" />
+    <Content Include="Content\js\libs\knockout\src\binding\defaultBindings\options.js" />
+    <Content Include="Content\js\libs\knockout\src\binding\defaultBindings\selectedOptions.js" />
+    <Content Include="Content\js\libs\knockout\src\binding\defaultBindings\style.js" />
+    <Content Include="Content\js\libs\knockout\src\binding\defaultBindings\submit.js" />
+    <Content Include="Content\js\libs\knockout\src\binding\defaultBindings\text.js" />
+    <Content Include="Content\js\libs\knockout\src\binding\defaultBindings\textInput.js" />
+    <Content Include="Content\js\libs\knockout\src\binding\defaultBindings\uniqueName.js" />
+    <Content Include="Content\js\libs\knockout\src\binding\defaultBindings\value.js" />
+    <Content Include="Content\js\libs\knockout\src\binding\defaultBindings\visible.js" />
+    <Content Include="Content\js\libs\knockout\src\binding\editDetection\arrayToDomNodeChildren.js" />
+    <Content Include="Content\js\libs\knockout\src\binding\editDetection\compareArrays.js" />
+    <Content Include="Content\js\libs\knockout\src\binding\expressionRewriting.js" />
+    <Content Include="Content\js\libs\knockout\src\binding\selectExtensions.js" />
+    <Content Include="Content\js\libs\knockout\src\components\componentBinding.js" />
+    <Content Include="Content\js\libs\knockout\src\components\customElements.js" />
+    <Content Include="Content\js\libs\knockout\src\components\defaultLoader.js" />
+    <Content Include="Content\js\libs\knockout\src\components\loaderRegistry.js" />
+    <Content Include="Content\js\libs\knockout\src\google-closure-compiler-utils.js" />
+    <Content Include="Content\js\libs\knockout\src\memoization.js" />
+    <Content Include="Content\js\libs\knockout\src\namespace.js" />
+    <Content Include="Content\js\libs\knockout\src\subscribables\dependencyDetection.js" />
+    <Content Include="Content\js\libs\knockout\src\subscribables\dependentObservable.js" />
+    <Content Include="Content\js\libs\knockout\src\subscribables\extenders.js" />
+    <Content Include="Content\js\libs\knockout\src\subscribables\mappingHelpers.js" />
+    <Content Include="Content\js\libs\knockout\src\subscribables\observable.js" />
+    <Content Include="Content\js\libs\knockout\src\subscribables\observableArray.changeTracking.js" />
+    <Content Include="Content\js\libs\knockout\src\subscribables\observableArray.js" />
+    <Content Include="Content\js\libs\knockout\src\subscribables\subscribable.js" />
+    <Content Include="Content\js\libs\knockout\src\templating\jquery.tmpl\jqueryTmplTemplateEngine.js" />
+    <Content Include="Content\js\libs\knockout\src\templating\native\nativeTemplateEngine.js" />
+    <Content Include="Content\js\libs\knockout\src\templating\templateEngine.js" />
+    <Content Include="Content\js\libs\knockout\src\templating\templateRewriting.js" />
+    <Content Include="Content\js\libs\knockout\src\templating\templateSources.js" />
+    <Content Include="Content\js\libs\knockout\src\templating\templating.js" />
+    <Content Include="Content\js\libs\knockout\src\utils.domData.js" />
+    <Content Include="Content\js\libs\knockout\src\utils.domManipulation.js" />
+    <Content Include="Content\js\libs\knockout\src\utils.domNodeDisposal.js" />
+    <Content Include="Content\js\libs\knockout\src\utils.js" />
+    <Content Include="Content\js\libs\knockout\src\version.js" />
+    <Content Include="Content\js\libs\knockout\src\virtualElements.js" />
+    <Content Include="Content\js\libs\matchMedia\LICENSE.txt" />
+    <Content Include="Content\js\libs\matchMedia\matchMedia.addListener.js" />
+    <Content Include="Content\js\libs\matchMedia\matchMedia.js" />
+    <Content Include="Content\js\libs\matchMedia\test\body.html" />
+    <Content Include="Content\js\libs\matchMedia\test\head.html" />
+    <Content Include="Content\js\libs\matchMedia\test\iframe_body.html" />
+    <Content Include="Content\js\libs\matchMedia\test\iframe_head.html" />
+    <Content Include="Content\js\libs\matchMedia\test\lib\JSLitmus.js" />
+    <Content Include="Content\js\libs\picturefill\Authors.txt" />
+    <Content Include="Content\js\libs\picturefill\dist\picturefill.js" />
+    <Content Include="Content\js\libs\picturefill\dist\picturefill.min.js" />
+    <Content Include="Content\js\libs\picturefill\dist\plugins\intrinsic-dimension\pf.intrinsic.js" />
+    <Content Include="Content\js\libs\picturefill\dist\plugins\intrinsic-dimension\pf.intrinsic.min.js" />
+    <Content Include="Content\js\libs\picturefill\dist\plugins\mutation\pf.mutation.js" />
+    <Content Include="Content\js\libs\picturefill\dist\plugins\mutation\pf.mutation.min.js" />
+    <Content Include="Content\js\libs\picturefill\dist\plugins\oldie\pf.oldie.js" />
+    <Content Include="Content\js\libs\picturefill\dist\plugins\oldie\pf.oldie.min.js" />
+    <Content Include="Content\js\libs\picturefill\dist\plugins\print\pf.print.js" />
+    <Content Include="Content\js\libs\picturefill\dist\plugins\print\pf.print.min.js" />
+    <Content Include="Content\js\libs\picturefill\dist\plugins\typesupport\pf.type.js" />
+    <Content Include="Content\js\libs\picturefill\dist\plugins\typesupport\pf.type.min.js" />
+    <Content Include="Content\js\libs\picturefill\gruntfile.js" />
+    <Content Include="Content\js\libs\picturefill\index.html" />
+    <Content Include="Content\js\libs\picturefill\logos\bocoup-lg.png" />
+    <Content Include="Content\js\libs\picturefill\logos\bocoup-sm.png" />
+    <Content Include="Content\js\libs\picturefill\logos\fg-lg.png" />
+    <Content Include="Content\js\libs\picturefill\logos\fg-sm.png" />
+    <Content Include="Content\js\libs\picturefill\logos\ricg-seal.png" />
+    <Content Include="Content\js\libs\picturefill\src\picturefill.js" />
+    <Content Include="Content\js\libs\picturefill\src\plugins\gecko-picture\pf.gecko-picture.js" />
+    <Content Include="Content\js\libs\picturefill\src\plugins\intrinsic-dimension\pf.intrinsic.js" />
+    <Content Include="Content\js\libs\picturefill\src\plugins\mutation\pf.mutation.js" />
+    <Content Include="Content\js\libs\picturefill\src\plugins\oldie\pf.oldie.js" />
+    <Content Include="Content\js\libs\picturefill\src\plugins\print\pf.print.js" />
+    <Content Include="Content\js\libs\picturefill\src\plugins\typesupport\pf.type.js" />
+    <Content Include="Content\js\libs\PxLoader\dist\pxloader-all.js" />
+    <Content Include="Content\js\libs\PxLoader\dist\pxloader-all.min.js" />
+    <Content Include="Content\js\libs\PxLoader\dist\pxloader-images.js" />
+    <Content Include="Content\js\libs\PxLoader\dist\pxloader-images.min.js" />
+    <Content Include="Content\js\libs\PxLoader\gruntfile.js" />
+    <Content Include="Content\js\libs\PxLoader\pxloader.externs.js" />
+    <Content Include="Content\js\libs\PxLoader\PxLoader.js" />
+    <Content Include="Content\js\libs\PxLoader\PxLoaderImage.js" />
+    <Content Include="Content\js\libs\PxLoader\PxLoaderSound.js" />
+    <Content Include="Content\js\libs\PxLoader\PxLoaderVideo.js" />
+    <Content Include="Content\js\libs\requirejs\require.js" />
+    <Content Include="Content\js\libs\slick-carousel\slick\ajax-loader.gif" />
+    <Content Include="Content\js\libs\slick-carousel\slick\fonts\slick.svg" />
+    <Content Include="Content\js\libs\slick-carousel\slick\slick-theme.css" />
+    <Content Include="Content\js\libs\slick-carousel\slick\slick.css" />
+    <Content Include="Content\js\libs\slick-carousel\slick\slick.js" />
+    <Content Include="Content\js\libs\slick-carousel\slick\slick.min.js" />
+    <Content Include="Content\js\libs\velocity\test\bluebird.js" />
+    <Content Include="Content\js\libs\velocity\test\index.html" />
+    <Content Include="Content\js\libs\velocity\test\jquery-1.11.1.js" />
+    <Content Include="Content\js\libs\velocity\test\jquery-1.4.3.js" />
+    <Content Include="Content\js\libs\velocity\test\q.js" />
+    <Content Include="Content\js\libs\velocity\test\qunit-1.14.0.css" />
+    <Content Include="Content\js\libs\velocity\test\qunit-1.14.0.js" />
+    <Content Include="Content\js\libs\velocity\test\when.js" />
+    <Content Include="Content\js\libs\velocity\test\zepto.js" />
+    <Content Include="Content\js\libs\velocity\velocity.js" />
+    <Content Include="Content\js\libs\velocity\velocity.min.js" />
+    <Content Include="Content\js\libs\velocity\velocity.ui.js" />
+    <Content Include="Content\js\libs\velocity\velocity.ui.min.js" />
+    <Content Include="Content\js\main.js" />
+    <Content Include="Content\js\modernizr-custom.js" />
+    <Content Include="Content\js\modules\cardApplication.js" />
+    <Content Include="Content\js\modules\cardIcon.js" />
+    <Content Include="Content\js\modules\cardIconManager.js" />
+    <Content Include="Content\js\modules\cardImage.js" />
+    <Content Include="Content\js\modules\cardImageManager.js" />
+    <Content Include="Content\js\modules\cardInfo.js" />
+    <Content Include="Content\js\modules\cardViewModel.js" />
+    <Content Include="Content\js\modules\cardWish.js" />
+    <Content Include="Content\js\modules\cardWishManager.js" />
+    <Content Include="Content\js\modules\dotNavigation.js" />
+    <Content Include="Content\js\modules\fullPageController.js" />
+    <Content Include="Content\js\modules\index.html" />
+    <Content Include="Content\js\modules\pageController.js" />
+    <Content Include="Content\js\modules\pageCounter.js" />
+    <Content Include="Content\js\modules\pageNavigator.js" />
+    <Content Include="Content\js\modules\pageOverlay.js" />
+    <Content Include="Content\js\modules\pageTitleGenerator.js" />
+    <Content Include="Content\js\modules\vecpreloader.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\HelpPage\Views\Web.config" />
+    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="fonts\SkodaPro.ttf" />
+    <Content Include="fonts\SkodaPro-Bold.ttf" />
+    <Content Include="fonts\SkodaPro-BoldItalic.ttf" />
+    <Content Include="fonts\SkodaPro-ExtraBold.ttf" />
+    <Content Include="fonts\SkodaPro-Italic.ttf" />
+    <Content Include="fonts\SkodaPro-Light.ttf" />
+    <Content Include="fonts\SkodaPro-Medium.ttf" />
+    <Content Include="Content\css\main.css.map" />
+    <Content Include="Content\fonts\fontello\fontello.eot" />
+    <Content Include="Content\fonts\fontello\fontello.ttf" />
+    <Content Include="Content\fonts\fontello\fontello.woff" />
+    <Content Include="Content\fonts\SkodaPro\SkodaPro-Bold.eot" />
+    <Content Include="Content\fonts\SkodaPro\SkodaPro-Bold.ttf" />
+    <Content Include="Content\fonts\SkodaPro\SkodaPro-Bold.woff" />
+    <Content Include="Content\fonts\SkodaPro\SkodaPro-BoldItalic.eot" />
+    <Content Include="Content\fonts\SkodaPro\SkodaPro-BoldItalic.ttf" />
+    <Content Include="Content\fonts\SkodaPro\SkodaPro-BoldItalic.woff" />
+    <Content Include="Content\fonts\SkodaPro\SkodaPro-ExtraBold.eot" />
+    <Content Include="Content\fonts\SkodaPro\SkodaPro-ExtraBold.ttf" />
+    <Content Include="Content\fonts\SkodaPro\SkodaPro-ExtraBold.woff" />
+    <Content Include="Content\fonts\SkodaPro\SkodaPro-Italic.eot" />
+    <Content Include="Content\fonts\SkodaPro\SkodaPro-Italic.ttf" />
+    <Content Include="Content\fonts\SkodaPro\SkodaPro-Italic.woff" />
+    <Content Include="Content\fonts\SkodaPro\SkodaPro-Light.eot" />
+    <Content Include="Content\fonts\SkodaPro\SkodaPro-Light.ttf" />
+    <Content Include="Content\fonts\SkodaPro\SkodaPro-Light.woff" />
+    <Content Include="Content\fonts\SkodaPro\SkodaPro-Medium.eot" />
+    <Content Include="Content\fonts\SkodaPro\SkodaPro-Medium.ttf" />
+    <Content Include="Content\fonts\SkodaPro\SkodaPro-Medium.woff" />
+    <Content Include="Content\fonts\SkodaPro\SkodaPro.eot" />
+    <Content Include="Content\fonts\SkodaPro\SkodaPro.ttf" />
+    <Content Include="Content\fonts\SkodaPro\SkodaPro.woff" />
+    <Content Include="Content\fonts\slick\slick.eot" />
+    <Content Include="Content\fonts\slick\slick.ttf" />
+    <Content Include="Content\fonts\slick\slick.woff" />
+    <Content Include="Content\js\libs\es6-promise\bower.json" />
+    <Content Include="Content\js\libs\eventEmitter\bower.json" />
+    <Content Include="Content\js\libs\eventEmitter\component.json" />
+    <Content Include="Content\js\libs\eventEmitter\README.md" />
+    <Content Include="Content\js\libs\eventEmitter\UNLICENSE" />
+    <Content Include="Content\js\libs\fastclick\bower.json" />
+    <Content Include="Content\js\libs\fastclick\LICENSE" />
+    <Content Include="Content\js\libs\fastclick\README.md" />
+    <Content Include="Content\js\libs\Flowtype.js\bower.json" />
+    <Content Include="Content\js\libs\Flowtype.js\README.md" />
+    <Content Include="Content\js\libs\fullpage.js\bower.json" />
+    <Content Include="Content\js\libs\fullpage.js\jquery.fullPage.scss" />
+    <Content Include="Content\js\libs\fullpage.js\package.json" />
+    <Content Include="Content\js\libs\fullpage.js\pure javascript %28Alpha%29\README.md" />
+    <Content Include="Content\js\libs\fullpage.js\README.md" />
+    <Content Include="Content\js\libs\html5shiv\bower.json" />
+    <Content Include="Content\js\libs\html5shiv\MIT and GPL2 licenses.md" />
+    <Content Include="Content\js\libs\html5shiv\package.json" />
+    <Content Include="Content\js\libs\html5shiv\readme.md" />
+    <Content Include="Content\js\libs\jquery\bower.json" />
+    <Content Include="Content\js\libs\jquery\dist\jquery.min.map" />
+    <Content Include="Content\js\libs\jquery\src\sizzle\dist\sizzle.min.map" />
+    <Content Include="Content\js\libs\Knockout-Extensions\README.md" />
+    <Content Include="Content\js\libs\knockout\bower.json" />
+    <Content Include="Content\js\libs\knockout\LICENSE" />
+    <Content Include="Content\js\libs\knockout\package.json" />
+    <Content Include="Content\js\libs\knockout\README.md" />
+    <Content Include="Content\js\libs\picturefill\bower.json" />
+    <Content Include="Content\js\libs\picturefill\composer.json" />
+    <Content Include="Content\js\libs\picturefill\CONTRIBUTING.md" />
+    <Content Include="Content\js\libs\picturefill\LICENSE" />
+    <Content Include="Content\js\libs\picturefill\package.json" />
+    <Content Include="Content\js\libs\picturefill\picturefill.json" />
+    <Content Include="Content\js\libs\picturefill\README.md" />
+    <Content Include="Content\js\libs\PxLoader\bower.json" />
+    <Content Include="Content\js\libs\PxLoader\package.json" />
+    <Content Include="Content\js\libs\PxLoader\README" />
+    <Content Include="Content\js\libs\requirejs\bower.json" />
+    <Content Include="Content\js\libs\requirejs\README.md" />
+    <Content Include="Content\js\libs\slick-carousel\bower.json" />
+    <Content Include="Content\js\libs\slick-carousel\component.json" />
+    <Content Include="Content\js\libs\slick-carousel\CONTRIBUTING.markdown" />
+    <Content Include="Content\js\libs\slick-carousel\LICENSE" />
+    <Content Include="Content\js\libs\slick-carousel\Makefile" />
+    <Content Include="Content\js\libs\slick-carousel\package.json" />
+    <Content Include="Content\js\libs\slick-carousel\README.markdown" />
+    <Content Include="Content\js\libs\slick-carousel\slick.jquery.json" />
+    <Content Include="Content\js\libs\slick-carousel\slick\config.rb" />
+    <Content Include="Content\js\libs\slick-carousel\slick\fonts\slick.eot" />
+    <Content Include="Content\js\libs\slick-carousel\slick\fonts\slick.ttf" />
+    <Content Include="Content\js\libs\slick-carousel\slick\fonts\slick.woff" />
+    <Content Include="Content\js\libs\slick-carousel\slick\slick-theme.scss" />
+    <Content Include="Content\js\libs\slick-carousel\slick\slick.scss" />
+    <Content Include="Content\js\libs\velocity\bower.json" />
+    <Content Include="Content\json\icons.json" />
+    <Content Include="Content\json\icons2.json" />
+    <Content Include="Content\json\imagepath.json" />
+    <Content Include="Content\json\images.json" />
+    <Content Include="Content\json\images2.json" />
+    <Content Include="Content\json\wishes.json" />
+    <Content Include="Content\json\wishes2.json" />
+    <Content Include="Content\json\wishes_1.json" />
+    <Content Include="Content\js\libs\matchMedia\bower.json" />
+    <Content Include="Content\js\libs\matchMedia\README.md" />
+    <Content Include="Content\js\libs\jquery-placeholder\bower.json" />
+    <Content Include="Content\js\libs\jquery-placeholder\jquery.placeholder.min.js.map" />
+    <Content Include="NLog.config" />
+    <None Include="Properties\PublishProfiles\skodachristmas2015.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="SkodaPro.ttf" />
+    <Content Include="Views\Home\ChristmasCard.cshtml" />
+    <Content Include="Views\SendCSV\Index.cshtml" />
+    <Content Include="Views\Home\Condition.cshtml" />
+    <Content Include="SenderAuthorization.config" />
+    <Content Include="Views\Mobile\Index.cshtml" />
+    <Content Include="Views\SendCSV\Email.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ChristmasDefault.resx">
+      <Generator>SkodaResxGenerator</Generator>
+      <LastGenOutput>ChristmasDefault.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53496</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:53496/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+    <MonoDevelop>
+      <Properties>
+        <XspParameters Port="8080" Address="127.0.0.1" SslMode="None" SslProtocol="Default" KeyType="None" CertFile="" KeyFile="" PasswordOptions="None" Password="" Verbose="True" />
+      </Properties>
+    </MonoDevelop>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
